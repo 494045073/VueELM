@@ -1,0 +1,6 @@
+$e-red:rgb(240,20,20);
+$e-gray:rgb(77,85,93);
+$e-white:#fff;
+@function eleblack($opacity:1){
+    @return rgba(7,17,27,$opacity)
+}

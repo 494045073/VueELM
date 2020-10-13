@@ -1,0 +1,48 @@
+@mixin bg-img ($url,$size){
+    background-image: url("#{$url}@2x.png");
+    background-size: $size;
+    background-repeat: no-repeat;
+    @media (-webkit-min-device-pixel-ratio:3) ,(min-device-pixel-ratio:3){
+        background-image: url("#{$url}@3x.png");
+        background-size: $size;
+        background-repeat: no-repeat;
+    }
+}
+@mixin supports($type,$size) {
+    &.decrease{
+        @include bg-img('/image/decrease_#{$type}',$size )
+    }
+    &.discount{
+        @include bg-img('/image/discount_#{$type}',$size )
+    }
+    &.special{
+        @include bg-img('/image/special_#{$type}',$size )
+    }
+    &.invoice{
+        @include bg-img('/image/invoice_#{$type}',$size )
+    }
+    &.guarantee{
+        @include bg-img('/image/guarantee_#{$type}',$size )
+    }
+}
+@mixin stars($size,$right) {
+    $wh:$size/2;
+    .stars-#{$size}{
+        display: inline-block;
+        width: $wh+px;
+        height: $wh+px;
+        margin-right: $right+px;
+        &:last-child{
+            margin-right: 0;
+        }
+        &.star-on{
+            @include bg-img('/image/star#{$size}_on',$wh+px $wh+px )
+        }
+        &.star-off {
+            @include bg-img('/image/star#{$size}_off', $wh+px $wh+px)
+        }
+        &.star-half {
+            @include bg-img('/image/star#{$size}_half', $wh+px $wh+px)
+        }
+    };   
+}
